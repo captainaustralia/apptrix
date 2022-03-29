@@ -9,7 +9,7 @@ class UserManager(BaseUserManager):
     """
     BASE USER MANAGER FOR PARTICIPANT
     """
-    def create_user(self, email, password, name, last_name, gender, is_staff, is_admin=False,
+    def create_user(self, email, password, name, last_name, gender, is_staff=False, is_admin=False,
                     is_active=True,
                     **kwargs):
         user_obj = self.model(
@@ -51,14 +51,12 @@ class Participant(AbstractBaseUser, PermissionsMixin):
 
     name = models.CharField(
         max_length=100,
-        blank=False,
-        null=True
+        blank=False
     )
 
     last_name = models.CharField(
         max_length=100,
-        blank=False,
-        null=True
+        blank=False
     )
 
     gender = models.CharField(
@@ -75,7 +73,9 @@ class Participant(AbstractBaseUser, PermissionsMixin):
     )
 
     avatar = models.ImageField(
-        upload_to=get_file_path
+        upload_to=get_file_path,
+        blank=True,
+        default='media/default.png'
     )
 
     is_active = models.BooleanField(default=False)

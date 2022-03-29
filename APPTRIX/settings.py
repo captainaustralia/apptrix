@@ -21,6 +21,9 @@ INSTALLED_APPS = [
 
     # APPS
     'core',
+
+    # LIBRARIES
+    'rest_framework',
 ]
 
 AUTH_USER_MODEL = 'core.Participant'
