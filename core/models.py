@@ -9,7 +9,8 @@ class UserManager(BaseUserManager):
     """
     BASE USER MANAGER FOR PARTICIPANT
     """
-    def create_user(self, email, password, name, last_name, gender, is_staff=False, is_admin=False,
+
+    def create_user(self, email, password, name, last_name, gender, avatar=None, is_staff=False, is_admin=False,
                     is_active=True,
                     **kwargs):
         user_obj = self.model(
@@ -19,6 +20,8 @@ class UserManager(BaseUserManager):
         user_obj.name = name
         user_obj.last_name = last_name
         user_obj.gender = gender
+        if avatar is not None:
+            user_obj.avatar = avatar
         user_obj.is_staff = is_staff
         user_obj.is_admin = is_admin
         user_obj.is_active = is_active
@@ -28,9 +31,10 @@ class UserManager(BaseUserManager):
 
     def create_superuser(self, email, password):
         user = self.create_user(
-            name=None,
-            last_name=None,
-            gender=None,
+            name=email,
+            last_name=email,
+            gender='male',
+            avatar='',
             email=email,
             password=password,
             is_staff=True,
@@ -93,7 +97,7 @@ class Participant(AbstractBaseUser, PermissionsMixin):
         verbose_name_plural = "Users"
 
     def __str__(self):
-        return f'Name:{self.name} , Last name : {self.last_name}'
+        return f'{self.email}'
 
     def get_full_name(self):
         return self.email

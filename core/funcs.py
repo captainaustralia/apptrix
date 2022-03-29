@@ -1,4 +1,5 @@
 import os
+from PIL import Image
 
 
 def get_file_path(obj, fname):
@@ -8,3 +9,4 @@ def get_file_path(obj, fname):
         obj.email,
         fname
     )
+
