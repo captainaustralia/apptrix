@@ -22,7 +22,7 @@
     <li><a>https://apptrix-alexeev.herokuapp.com/api/list/?distance=500</a> Users list (filter distance) endpoint </li>
     <li><a>https://apptrix-alexeev.herokuapp.com/api/clients/1/match</a> Like endpoint (Instead of ID -> add some number,  field is set, you will like some user If he likes you too, you will receive an email </li>
     <li><a>https://apptrix-alexeev.herokuapp.com</a> Mainpage endpoint , if u are login , u can go , else site redirect to login page </li>
-    <li><a>https://apptrix-alexeev.herokuapp.com</a> Default admin panel </li>
+    <li><a>https://apptrix-alexeev.herokuapp.com/admin</a> Default admin panel </li>
 </ul>
 <p> Работу по наложения водяного знака можно проверить в drf, кликнув на фото после создания своего пользователя клацнув по юрлу, либо залогинившись произойдет редирект на мейн страницу с вашим фото. </p>
 <p> В базе специально сгенерировано 20 пользователей с какими-то рандомными координатами, можно проверить работу фильтра (если проверяете все фильтры вместе , добавьте &distance).По дефолту у нового пользователя широта - 0 , долгота - 0, но всё таки на дистанции distance=300 и более можно увидеть работу фильтра</p>
