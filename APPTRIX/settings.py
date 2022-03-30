@@ -11,8 +11,7 @@ SECRET_KEY = 'django-insecure-*1tu(!q+8k5s$ndy5z+jh97&rt#1bg%l!mki$r@qafi^y0+knq
 DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1', 'apptrix-alexeev.herokuapp.com']
-
-LOGIN_REDIRECT_URL = ''
+LOGIN_REDIRECT_URL = 'main'
 LOGIN_URL = 'api/auth/login'
 LOGOUT_URL = 'api/auth/login'
 INSTALLED_APPS = [

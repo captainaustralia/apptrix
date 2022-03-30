@@ -11,5 +11,4 @@ urlpatterns = [
     path('auth/', include('rest_framework.urls', namespace='rest_framework')),
     path('clients/<int:id>/match', liked_user, name='like'),
     path('list/', ParticipantListAPIView.as_view(), name='list')
-
 ]
