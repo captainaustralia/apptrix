@@ -82,6 +82,13 @@ class Participant(AbstractBaseUser, PermissionsMixin):
         default='media/default.png'
     )
 
+    liked = models.ManyToManyField(
+        'self',
+        symmetrical=False,
+        through='Membership',
+        through_fields=('who_liked', 'who_was_liked')
+    )
+
     is_active = models.BooleanField(default=False)
 
     is_admin = models.BooleanField(default=False)
@@ -112,3 +119,8 @@ class Participant(AbstractBaseUser, PermissionsMixin):
 
     def has_module_perms(self, app_label):
         return True
+
+
+class Membership(models.Model):
+    who_liked = models.ForeignKey(Participant,related_name='who', on_delete=models.CASCADE)
+    who_was_liked = models.ForeignKey(Participant,related_name='whose', on_delete=models.CASCADE)
