@@ -1,7 +1,6 @@
 from django.contrib.auth.base_user import AbstractBaseUser, BaseUserManager
 from django.contrib.auth.models import PermissionsMixin
 from django.db import models
-
 from core.funcs import get_file_path
 
 
@@ -79,7 +78,7 @@ class Participant(AbstractBaseUser, PermissionsMixin):
     avatar = models.ImageField(
         upload_to=get_file_path,
         blank=True,
-        default='media/default.png'
+        default='/default.png'
     )
 
     liked = models.ManyToManyField(
@@ -87,6 +86,16 @@ class Participant(AbstractBaseUser, PermissionsMixin):
         symmetrical=False,
         through='Membership',
         through_fields=('who_liked', 'who_was_liked')
+    )
+
+    longitude = models.FloatField(
+        blank=True,
+        null=True
+    )
+
+    latitude = models.FloatField(
+        blank=True,
+        null=True
     )
 
     is_active = models.BooleanField(default=False)
@@ -122,5 +131,17 @@ class Participant(AbstractBaseUser, PermissionsMixin):
 
 
 class Membership(models.Model):
-    who_liked = models.ForeignKey(Participant,related_name='who', on_delete=models.CASCADE)
-    who_was_liked = models.ForeignKey(Participant,related_name='whose', on_delete=models.CASCADE)
+    """
+    TABLE FOR M2M THROUGH
+    """
+
+    who_liked = models.ForeignKey(
+        Participant,
+        related_name='who',
+        on_delete=models.CASCADE
+    )
+    who_was_liked = models.ForeignKey(
+        Participant,
+        related_name='whose',
+        on_delete=models.CASCADE
+    )

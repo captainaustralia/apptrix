@@ -7,7 +7,7 @@ from core.views import ParticipantCreateAPIView, liked_user, ParticipantListAPIV
 # api/clients/user_id/match ( like endpoint)
 
 urlpatterns = [
-    path('clients/create/', ParticipantCreateAPIView.as_view()),
+    path('clients/create/', ParticipantCreateAPIView.as_view(),name='create'),
     path('auth/', include('rest_framework.urls', namespace='rest_framework')),
     path('clients/<int:id>/match', liked_user, name='like'),
     path('list/', ParticipantListAPIView.as_view(), name='list')

@@ -18,9 +18,9 @@ def add_watermark(sender, **kwargs):
         image = Image.open(path)
         watermark = Image.open('media/watermark.png')
         image.paste(watermark, (0, 0))
-        image.save(str(path))
-    # we can have only 1 trouble with it func
-    # if user not send photo , the model will set the default photo
-    # the task does not set rules on whether a field is required
+        image.save('media/' + str(path))
+        # we can have only 1 trouble with it func
+        # if user not send photo , the model will set the default photo
+        # the task does not set rules on whether a field is required
     except Exception:
         pass
