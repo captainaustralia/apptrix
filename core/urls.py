@@ -1,5 +1,5 @@
 from django.urls import path, include
-from core.views import ParticipantCreateAPIView, liked_user
+from core.views import ParticipantCreateAPIView, liked_user, ParticipantListAPIView
 
 # ENDPOINTS
 # api/clients/create (register endpoint)
@@ -9,5 +9,7 @@ from core.views import ParticipantCreateAPIView, liked_user
 urlpatterns = [
     path('clients/create/', ParticipantCreateAPIView.as_view()),
     path('auth/', include('rest_framework.urls', namespace='rest_framework')),
-    path('clients/<int:id>/match', liked_user, name='like')
+    path('clients/<int:id>/match', liked_user, name='like'),
+    path('list/', ParticipantListAPIView.as_view(), name='list')
+
 ]

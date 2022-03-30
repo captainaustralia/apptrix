@@ -1,15 +1,15 @@
+import django_filters
 from rest_framework import generics, permissions, status
 from rest_framework.decorators import api_view
-from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
-from core.api.serializers import ParticipantSerializer
+from core.api.serializers import ParticipantRegisterSerializer, ParticipantListSerializer
 from core.models import Participant, Membership
 from core.funcs import send_messages
 
 
 class ParticipantCreateAPIView(generics.CreateAPIView):
     model = Participant
-    serializer_class = ParticipantSerializer
+    serializer_class = ParticipantRegisterSerializer
     permission_classes = (permissions.AllowAny,)
 
 
@@ -32,3 +32,10 @@ def liked_user(request, id):
                     return Response("Liked")
     else:
         return Response(status=401)
+
+
+class ParticipantListAPIView(generics.ListAPIView):
+    queryset = Participant.objects.all()
+    serializer_class = ParticipantListSerializer
+    filter_backends = [django_filters.rest_framework.DjangoFilterBackend]
+    filterset_fields = ['gender', 'name', 'last_name']

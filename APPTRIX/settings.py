@@ -23,6 +23,7 @@ INSTALLED_APPS = [
 
     # LIBRARIES
     'rest_framework',
+    'django_filters',
 ]
 
 AUTH_USER_MODEL = 'core.Participant'
