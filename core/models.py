@@ -90,12 +90,12 @@ class Participant(AbstractBaseUser, PermissionsMixin):
 
     longitude = models.FloatField(
         blank=True,
-        null=True
+        default=0
     )
 
     latitude = models.FloatField(
         blank=True,
-        null=True
+        default=0
     )
 
     is_active = models.BooleanField(default=False)
