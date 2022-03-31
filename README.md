@@ -15,14 +15,13 @@
 <hr>
 <h2> API endpoints :</h2>
 <ul>
-    <li><a>https://apptrix-alexeev.herokuapp.com/api/clients/create/</a> Create user endpoint </li>
-    <li><a>https://apptrix-alexeev.herokuapp.com/api/auth/login</a> Login endpoint </li>
-    <li><a>https://apptrix-alexeev.herokuapp.com/api/auth/logout</a> Logout endpoint </li>
-    <li><a>https://apptrix-alexeev.herokuapp.com/api/list</a> Users list endpoint (with filters name/lastname/gender) if add &distance=num you can filter by distance  </li>
-    <li><a>https://apptrix-alexeev.herokuapp.com/api/list/?distance=500</a> Users list (filter distance) endpoint </li>
-    <li><a>https://apptrix-alexeev.herokuapp.com/api/clients/1/match</a> Like endpoint (Instead of ID -> add some number,  field is set, you will like some user If he likes you too, you will receive an email </li>
-    <li><a>https://apptrix-alexeev.herokuapp.com</a> Mainpage endpoint , if u are login , u can go , else site redirect to login page </li>
-    <li><a>https://apptrix-alexeev.herokuapp.com/admin</a> Default admin panel </li>
+    <li><a href='https://apptrix-alexeev.herokuapp.com/api/clients/create/'>https://apptrix-alexeev.herokuapp.com/api/clients/create/</a>Create user endpoint </li>
+    <li><a href='https://apptrix-alexeev.herokuapp.com/api/auth/login'>https://apptrix-alexeev.herokuapp.com/api/auth/login</a> Login endpoint </li>
+    <li><a href='https://apptrix-alexeev.herokuapp.com/api/auth/logout'>https://apptrix-alexeev.herokuapp.com/api/auth/logout</a> Logout endpoint </li>
+    <li><a href='https://apptrix-alexeev.herokuapp.com/api/list'>https://apptrix-alexeev.herokuapp.com/api/list</a> Users list endpoint ( установлены дефолтные фильтры по полу/имени/фамилии/дистанции , чтобы проверить фильтр distance нужно быть залогиненым)<p>( example full filters:.../api/list/?name=&last_name=&gender=&distance=500 )</p> </li>
+    <li><a href='https://apptrix-alexeev.herokuapp.com/api/clients/1/match'>https://apptrix-alexeev.herokuapp.com/api/clients/1/match</a> Like endpoint (Вместо "1" , устанавливаете нужный ID , ставите лайк пользователю, в случае если лайк взаимен, происходит отправка сообщения на почту(нужно быть залогиненым) </li>
+    <li><a href='https://apptrix-alexeev.herokuapp.com'>Mainpage</a></li>
+    <li><a href='https://apptrix-alexeev.herokuapp.com/admin'>admin</a></li>
 </ul>
 <p> Работу по наложения водяного знака можно проверить в drf, кликнув на фото после создания своего пользователя клацнув по юрлу, либо залогинившись произойдет редирект на мейн страницу с вашим фото. </p>
 <p> В базе специально сгенерировано 20 пользователей с какими-то рандомными координатами, можно проверить работу фильтра (если проверяете все фильтры вместе , добавьте &distance).По дефолту у нового пользователя широта - 0 , долгота - 0, но всё таки на дистанции distance=300 и более можно увидеть работу фильтра</p>
